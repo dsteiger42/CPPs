@@ -1,6 +1,7 @@
-NAME = harl
+NAME = ClapTrap
 
-SRCS = src/main.cpp src/Harl.cpp
+SRCS = src/main.cpp \
+		src/ClapTrap.cpp
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 

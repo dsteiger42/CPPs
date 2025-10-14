@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/27 14:02:18 by dsteiger          #+#    #+#             */
-/*   Updated: 2025/09/01 14:04:30 by dsteiger         ###   ########.fr       */
+/*   Created: 2025/10/14 18:41:27 by dsteiger          #+#    #+#             */
+/*   Updated: 2025/10/14 19:17:46 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Zombie.hpp"
+#include "../includes/ClapTrap.hpp"
 
-Zombie	*newZombie(std::string name)
+int main(void)
 {
-    Zombie *zombie1 = new Zombie(name);
-    zombie1->announce();
-    return zombie1;
+    ClapTrap claptrap;
+    //claptrap.attack();
 }

@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 14:05:46 by dsteiger          #+#    #+#             */
-/*   Updated: 2025/09/01 17:29:49 by dsteiger         ###   ########.fr       */
+/*   Created: 2025/10/14 18:41:53 by dsteiger          #+#    #+#             */
+/*   Updated: 2025/10/14 18:56:21 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Zombie.hpp"
+#ifndef CLAPTRAP_H
+# define CLAPTRAP_H
 
-Zombie *zombieHorde(int N, std::string name)
+# include <iostream>
+
+class ClapTrap
 {
-    if (N <= 0)
-        return (NULL);
-    Zombie* horde = new Zombie[N];
-    for (int i = 0; i < N; i++)
-        horde[i].setName(name);
-    return (horde);
-}
+  private:
+	std::string _Name;
+	int _HitPoint;
+	int _EnergyPoints;
+	int _AttackDamage;
+
+  public:
+	ClapTrap();
+	ClapTrap(ClapTrap const &copy);
+	ClapTrap &operator=(ClapTrap const &copy);
+	~ClapTrap();
+	void attack(const std::string &target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
+};
+
+#endif
