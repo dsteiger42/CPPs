@@ -15,5 +15,14 @@
 int main(void)
 {
     ClapTrap claptrap;
-    //claptrap.attack();
+    ClapTrap claptrap2(claptrap);
+    ClapTrap claptrap3;
+    claptrap3 = claptrap;
+
+    claptrap.attack("DOG");
+    claptrap.takeDamage(1);
+    claptrap.beRepaired(1);
+    std::cout << "> nergy points left: " << claptrap.getEnergyPoints() << std::endl;
+    claptrap.increaseAttack(3);
+    claptrap.attack("DOG");
 }
