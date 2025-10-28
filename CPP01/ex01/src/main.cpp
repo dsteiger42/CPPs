@@ -14,9 +14,11 @@
 
 int main(void)
 {
-    int N = 5;
-    Zombie* horde = zombieHorde(N, "Shane");
-    for (int i = 0; i < N; i++)
+    int n;
+    std::cout << "Enter the number of zombies: ";
+    std::cin >> n;
+    Zombie* horde = zombieHorde(n, "Shane");
+    for (int i = 0; i < n; i++)
         horde[i].announce();
     delete[] horde;
     return 0;
