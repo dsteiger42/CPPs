@@ -21,7 +21,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 
 }
 
-
 Bureaucrat::~Bureaucrat()
 {
     std::cout << "Destructor called." << std::endl;
@@ -35,4 +34,23 @@ std::string Bureaucrat::getName() const
 int Bureaucrat::getGrade() const
 {
     return this->_grade;
+}
+
+void Bureaucrat::incrementGrade(int amount)
+{
+    if ((_grade -= amount) < 1)
+        throw;
+        
+}
+
+void Bureaucrat::decreamentGrade(int amount)
+{
+    if ((_grade += amount) < 150)
+        throw;
+        
+}
+
+void Bureaucrat::decreamentGrade(int amount)
+{
+    
 }
