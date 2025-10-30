@@ -10,19 +10,23 @@ SRCS = src/main.cpp \
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-OBJS = $(SRCS:.cpp=.o)
-RM = rm -f
+OBJS_DIR = objs
+OBJS = $(SRCS:src/%.cpp=$(OBJS_DIR)/%.o)
+
+RM = rm -rf
+MKDIR = mkdir -p
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $^ -o $@
 
-%.o: %.cpp
+$(OBJS_DIR)/%.o: src/%.cpp
+	@$(MKDIR) $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS_DIR)
 
 fclean: clean
 	$(RM) $(NAME)

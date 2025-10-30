@@ -1,12 +1,7 @@
-NAME = Abstract
+NAME = Bureaucrat
 
 SRCS = src/main.cpp \
-		src/Animal.cpp \
-		src/Cat.cpp \
-		src/Dog.cpp \
-		src/WrongAnimal.cpp \
-		src/WrongCat.cpp \
-		src/Brain.cpp
+		src/Bureaucrat.cpp
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
