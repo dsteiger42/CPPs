@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/31 15:04:31 by dsteiger          #+#    #+#             */
+/*   Updated: 2025/10/31 18:20:19 by dsteiger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/Bureaucrat.hpp"
 
 // init here cuz _name is a const
@@ -6,13 +18,14 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)
 	std::cout << "Default constructor called." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name),
-	_grade(grade)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
 {
+	std::cout << "Constructor called." << std::endl;
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
+	_grade = grade;
 }
 
 // Initialize _name in the top, cuz I cant assign consts (_name = copy._name)
