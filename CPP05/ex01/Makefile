@@ -1,0 +1,33 @@
+NAME = Form
+
+SRCS = src/main.cpp \
+		src/Bureaucrat.cpp \
+		src/Form.cpp
+
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+
+OBJS_DIR = objs
+OBJS = $(SRCS:src/%.cpp=$(OBJS_DIR)/%.o)
+
+RM = rm -rf
+MKDIR = mkdir -p
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $^ -o $@
+
+$(OBJS_DIR)/%.o: src/%.cpp
+	@$(MKDIR) $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	$(RM) -r $(OBJS_DIR)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
