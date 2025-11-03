@@ -1,9 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/03 19:25:29 by dsteiger          #+#    #+#             */
+/*   Updated: 2025/11/03 20:19:31 by dsteiger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
-#include <iostream>
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/AForm.hpp"
+#include <iostream>
+#include <math.h>
+#include <ctime>
+#include <cstdlib>
 
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"
@@ -21,7 +36,9 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(const ShrubberyCreationForm& copy);
 		~ShrubberyCreationForm();
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm& other);
-        void execute(Bureaucrat const &exec) const;
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm& copy);
+        void beExecuted() const;
+		void execute(const Bureaucrat &executor) const;
+
 };
 #endif

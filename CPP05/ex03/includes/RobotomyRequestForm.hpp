@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 19:25:27 by dsteiger          #+#    #+#             */
-/*   Updated: 2025/11/03 20:19:33 by dsteiger         ###   ########.fr       */
+/*   Updated: 2025/11/03 20:31:27 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <math.h>
 #include <ctime>
 #include <cstdlib>
+# include <string>
 
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"

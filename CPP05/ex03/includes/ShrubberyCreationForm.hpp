@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 19:25:27 by dsteiger          #+#    #+#             */
-/*   Updated: 2025/11/03 20:19:33 by dsteiger         ###   ########.fr       */
+/*   Created: 2025/11/03 19:25:29 by dsteiger          #+#    #+#             */
+/*   Updated: 2025/11/03 20:31:29 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/AForm.hpp"
@@ -19,6 +19,7 @@
 #include <math.h>
 #include <ctime>
 #include <cstdlib>
+# include <string>
 
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"
@@ -26,18 +27,19 @@
 #define BLUE    "\033[34m"
 #define RESET   "\033[0m"
 
-class RobotomyRequestForm : public AForm
+class ShrubberyCreationForm : public AForm
 {
     private:
         std::string _target;
 
     public:
-		RobotomyRequestForm();
-		RobotomyRequestForm(std::string target);
-		RobotomyRequestForm(const RobotomyRequestForm& copy);
-		~RobotomyRequestForm();
-		RobotomyRequestForm &operator=(const RobotomyRequestForm& copy);
+		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm(const ShrubberyCreationForm& copy);
+		~ShrubberyCreationForm();
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm& copy);
         void beExecuted() const;
 		void execute(const Bureaucrat &executor) const;
+
 };
 #endif
