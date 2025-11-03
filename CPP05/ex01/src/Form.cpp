@@ -13,7 +13,7 @@
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/Form.hpp"
 
-Form::Form() : _name("Default"), _isSigned(false), _gradeSign(0), _gradeExec(0)
+Form::Form() : _name("Default"), _isSigned(false), _gradeSign(150), _gradeExec(150)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -60,4 +60,19 @@ int Form::getGradeSign() const
 int Form::getGradeExec() const
 {
 	return (this->_gradeExec);
+}
+
+void Form::beSigned(const Bureaucrat &bureaucrat)
+{
+    if (bureaucrat.getGrade() > _gradeSign)
+        throw Form::GradeTooLowException();
+    _isSigned = true;
+}
+
+std::ostream &operator<<(std::ostream &out, const Form &form)
+{
+    // this changes 0->false or 1->true in the final result
+    out << std::boolalpha;
+	out << "Form:\n" <<  "Name: " << form.getName() << "\nSigned: " << form.getSigned() << "\nGrade to sign: " << form.getGradeSign() << "\nGrade to execute: " << form.getGradeExec();
+	return out;
 }

@@ -21,6 +21,8 @@
 #define BLUE    "\033[34m"
 #define RESET   "\033[0m"
 
+class Bureaucrat;
+
 class Form
 {
     private:
@@ -39,7 +41,8 @@ class Form
         bool getSigned() const;
         int getGradeSign() const;
         int getGradeExec() const;
-        class FormTooHighException : public std::exception
+        void beSigned(const Bureaucrat &bureaucrat);
+        class GradeTooHighException : public std::exception
         {
             public:
                 const char* what() const throw()
@@ -48,7 +51,7 @@ class Form
                 }
         };
 
-        class FormTooLowException : public std::exception
+        class GradeTooLowException : public std::exception
         {
             public:
                 const char* what() const throw()
@@ -56,9 +59,7 @@ class Form
                     return GREEN "Bureaucrat form is too low." RESET;
                 }
         };
-
-
-
 };
+std::ostream &operator<<(std::ostream &out, const Form &form);
 
 #endif

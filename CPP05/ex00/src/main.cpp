@@ -70,6 +70,7 @@ int	main(void)
 	try
 	{
 		Bureaucrat bur2("Bur2", 130);
+        std::cout << bur2 << std::endl;
 	}
 	catch (const std::exception &e)
 	{
