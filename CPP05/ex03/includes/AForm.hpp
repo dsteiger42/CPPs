@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 19:25:16 by dsteiger          #+#    #+#             */
-/*   Updated: 2025/11/03 20:31:33 by dsteiger         ###   ########.fr       */
+/*   Updated: 2025/11/04 17:35:12 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class AForm
 	AForm(const std::string &name, int gradeSign, int gradeExec);
 	AForm(const AForm &copy);
 	AForm &operator=(const AForm &copy);
-	~AForm();
+	virtual ~AForm();
 	std::string getName() const;
 	bool getSigned() const;
 	int getGradeSign() const;

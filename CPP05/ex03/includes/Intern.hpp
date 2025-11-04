@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 20:29:12 by dsteiger          #+#    #+#             */
-/*   Updated: 2025/11/03 20:31:59 by dsteiger         ###   ########.fr       */
+/*   Updated: 2025/11/04 17:25:10 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ class Intern
     private:
 
     public:
+		Intern();
+		Intern(const Intern& copy);
+		~Intern();
+		Intern &operator=(const Intern& copy);
+        AForm *makeForm(std::string &formName, std::string &formTarget);
     
 };
 
