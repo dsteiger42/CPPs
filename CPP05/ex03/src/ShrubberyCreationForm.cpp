@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 19:25:56 by dsteiger          #+#    #+#             */
-/*   Updated: 2025/11/03 20:23:15 by dsteiger         ###   ########.fr       */
+/*   Updated: 2025/11/05 19:51:04 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,20 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void ShrubberyCreationForm::beExecuted() const
 {
+	std::ofstream file((_target + "_shrubbery").c_str());
+	if (!file.is_open())
+		throw FileCantOpenException();
+
+	file << "       _-_\n";
+	file << "    /~~   ~~\\\n";
+	file << " /~~         ~~\\\n";
+	file << "{               }\n";
+	file << " \\  _-     -_  /\n";
+	file << "   ~  \\\\ //  ~\n";
+	file << "_- -   | | _- _\n";
+	file << "  _ -  | |   -_\n";
+	file << "      // \\\\\n";
+	file.close();
 }
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const

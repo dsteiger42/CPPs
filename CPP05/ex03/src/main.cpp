@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 19:25:41 by dsteiger          #+#    #+#             */
-/*   Updated: 2025/11/04 17:44:52 by dsteiger         ###   ########.fr       */
+/*   Updated: 2025/11/05 19:55:40 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 		std::string formName = "robotomy request";
 		std::string formTarget = "Bin Laden";
 		AForm *form = intern.makeForm(formName, formTarget);
-		Bureaucrat bur1("N1", 140);
+		Bureaucrat bur1("N1", 130);
 		if(form)
 		{
 			ShrubberyCreationForm shrubberyForm("Burro");

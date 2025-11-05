@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 19:25:29 by dsteiger          #+#    #+#             */
-/*   Updated: 2025/11/03 20:19:31 by dsteiger         ###   ########.fr       */
+/*   Updated: 2025/11/05 19:45:44 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <math.h>
 #include <ctime>
 #include <cstdlib>
+#include <fstream>
 
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"
@@ -39,6 +40,13 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm& copy);
         void beExecuted() const;
 		void execute(const Bureaucrat &executor) const;
-
+		class FileCantOpenException : public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return "Error: could not open file.";
+				}
+		};
 };
 #endif
