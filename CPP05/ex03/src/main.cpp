@@ -17,30 +17,39 @@
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/Intern.hpp"
 
-int	main(void)
+int main(void)
 {
 	try
 	{
 		Intern intern;
+		Bureaucrat bur1("N1", 2);
+
 		std::string formName = "robotomy request";
 		std::string formTarget = "Bin Laden";
+
 		AForm *form = intern.makeForm(formName, formTarget);
-		Bureaucrat bur1("N1", 130);
-		if(form)
+		if (form)
 		{
+			std::cout << "\n--------------------\n" << std::endl;
+			bur1.signForm(*form);
+			bur1.executeForm(*form);
+
+			std::cout << "\n--------------------\n" << std::endl;
+
 			ShrubberyCreationForm shrubberyForm("Burro");
-			RobotomyRequestForm robotomyForm("OK");
+			RobotomyRequestForm robotomyForm("Menos Burro");
 			PresidentialPardonForm pardonForm("Esperto");
-			
+
 			bur1.signForm(shrubberyForm);
 			bur1.signForm(robotomyForm);
 			bur1.signForm(pardonForm);
-			
+
 			bur1.executeForm(shrubberyForm);
 			std::cout << std::endl;
 			bur1.executeForm(robotomyForm);
 			std::cout << std::endl;
 			bur1.executeForm(pardonForm);
+
 			delete form;
 		}
 	}
@@ -48,4 +57,5 @@ int	main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	return 0;
 }

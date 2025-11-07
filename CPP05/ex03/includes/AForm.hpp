@@ -53,7 +53,7 @@ class AForm
 		public:
 		const char *what() const throw()
 		{
-			return (GREEN "Form is too high." RESET);
+			return (GREEN "Grade is too high." RESET);
 		}
 	};
 
@@ -62,7 +62,7 @@ class AForm
 		public:
 		const char *what() const throw()
 		{
-			return (GREEN "Form is too low." RESET);
+			return (GREEN "Grade is too low." RESET);
 		}
 	};
 

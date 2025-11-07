@@ -33,6 +33,8 @@ Intern::~Intern()
     std::cout << "Intern destructor called" << std::endl;
 }
 
+// Array of the Intern class.
+// Stores the names of the forms that an Intern can create
 std::string Intern::Names[3] =
 {
     "shrubbery creation",
@@ -40,6 +42,12 @@ std::string Intern::Names[3] =
 	"presidential pardon"
 };
 
+/*
+Constructor is an array of 3 elements.
+Each element is a pointer to a function.
+All functions have a paramter &target and return a pointer to AForm.
+Each function pointer points to a specific "create" function.
+*/
 AForm* (*Intern::Constructors[3])(const std::string &target) =
 {
     &ShrubberyCreationForm::create,
