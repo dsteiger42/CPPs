@@ -41,6 +41,7 @@ class ShrubberyCreationForm : public AForm
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
 	void beExecuted() const;
 	void execute(const Bureaucrat &executor) const;
+    static AForm* create(const std::string &target);
 	class FileCantOpenException : public std::exception
 	{
 		public:

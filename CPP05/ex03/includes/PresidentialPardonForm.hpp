@@ -40,5 +40,6 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm &operator=(const PresidentialPardonForm& copy);
         void beExecuted() const;
 		void execute(const Bureaucrat &executor) const;
+        static AForm* create(const std::string &target);
 };
 #endif

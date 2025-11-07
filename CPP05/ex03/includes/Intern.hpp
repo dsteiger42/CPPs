@@ -27,6 +27,8 @@
 class Intern
 {
     private:
+        static std::string Names[3];
+        static AForm* (*Constructors[3])(const std::string &target);
 
     public:
 		Intern();
@@ -34,7 +36,14 @@ class Intern
 		~Intern();
 		Intern &operator=(const Intern& copy);
         AForm *makeForm(std::string &formName, std::string &formTarget);
-    
+        class FormNotFoundException : public std::exception
+        {
+            public:
+                const char* what() const throw()
+                {
+                    return "Form not found";
+                }
+        };
 };
 
 #endif

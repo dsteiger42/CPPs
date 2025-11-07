@@ -52,3 +52,8 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 	AForm::execute(executor);
 	beExecuted();
 }
+
+AForm* RobotomyRequestForm::create(const std::string &target)
+{
+    return new RobotomyRequestForm(target);
+}

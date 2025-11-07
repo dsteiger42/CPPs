@@ -33,31 +33,29 @@ Intern::~Intern()
     std::cout << "Intern destructor called" << std::endl;
 }
 
-AForm *Intern::makeForm(std::string &formName, std::string &formTarget)
+std::string Intern::Names[3] =
 {
-	if (formName.empty())
-	{
-		std::cerr << "Form name does not exist." << std::endl;
-		return (NULL);
-	}
-	if (formName == "shrubbery creation")
-	{
-		std::cout << "Intern creates ShrubberyCreationForm" << std::endl;
-		return (new ShrubberyCreationForm(formTarget));
-	}
-	else if (formName == "robotomy request")
-	{
-		std::cout << "Intern creates RobotomyRequestForm" << std::endl;
-		return (new RobotomyRequestForm(formTarget));
-	}
-	else if (formName == "presidential pardon")
-	{
-		std::cout << "Intern creates PresidentialPardonForm" << std::endl;
-		return (new PresidentialPardonForm(formTarget));
-	}
-	else
-	{
-		std::cerr << "Intern could not find the form: " << formName << std::endl;
-		return (NULL);
-	}
+    "shrubbery creation",
+	"robotomy request",
+	"presidential pardon"
+};
+
+AForm* (*Intern::Constructors[3])(const std::string &target) =
+{
+    &ShrubberyCreationForm::create,
+    &RobotomyRequestForm::create,
+    &PresidentialPardonForm::create
+};
+
+AForm* Intern::makeForm(std::string &formName, std::string &formTarget)
+{
+    for (int i = 0; i < 3; i++)
+    {
+        if (formName == Names[i])
+        {
+            std :: cout << "Intern created " << formName << std :: endl;
+			return Constructors[i](formTarget);
+        }
+    }
+    throw Intern::FormNotFoundException();
 }

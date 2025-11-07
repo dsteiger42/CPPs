@@ -40,5 +40,6 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm &operator=(const RobotomyRequestForm& copy);
         void beExecuted() const;
 		void execute(const Bureaucrat &executor) const;
+        static AForm* create(const std::string &target);
 };
 #endif

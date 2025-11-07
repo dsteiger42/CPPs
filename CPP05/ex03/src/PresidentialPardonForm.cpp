@@ -47,3 +47,8 @@ void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 	AForm::execute(executor);
 	beExecuted();
 }
+
+AForm* PresidentialPardonForm::create(const std::string &target)
+{
+    return new PresidentialPardonForm(target);
+}

@@ -60,3 +60,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 	AForm::execute(executor);
 	beExecuted();
 }
+
+AForm* ShrubberyCreationForm::create(const std::string &target)
+{
+    return new ShrubberyCreationForm(target);
+}
