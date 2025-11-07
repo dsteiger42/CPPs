@@ -47,7 +47,7 @@ class Form
             public:
                 const char* what() const throw()
                 {
-                    return GREEN "Bureaucrat form is too high." RESET;
+                    return GREEN "Bureaucrat grade is too high." RESET;
                 }
         };
 
@@ -56,7 +56,7 @@ class Form
             public:
                 const char* what() const throw()
                 {
-                    return GREEN "Bureaucrat form is too low." RESET;
+                    return GREEN "Bureaucrat grade is too low." RESET;
                 }
         };
 };

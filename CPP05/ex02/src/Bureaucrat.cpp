@@ -105,8 +105,6 @@ void Bureaucrat::executeForm(AForm const &form) const
 	{
 		std::cerr << _name << " couldnt execute " << form << " because " << e.what() << std::endl;
 	}
-
-	std::cout << _name << " executed " << form << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bur)

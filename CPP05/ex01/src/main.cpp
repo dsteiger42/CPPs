@@ -79,10 +79,10 @@ int	main(void)
 		std::cout << john << std::endl;
 		std::cout << taxForm << std::endl;
 
-		std::cout << "\n--- Attempt 1: Jim tries to sign ---" << std::endl;
+		std::cout << "\n--- 1st case: Jim tries to sign ---" << std::endl;
 		jim.signForm(taxForm);
 
-		std::cout << "\n--- Attempt 2: John tries to sign ---" << std::endl;
+		std::cout << "\n--- 2nd case: John tries to sign ---" << std::endl;
 		john.signForm(taxForm);
 
 		std::cout << "\nFinal Form status:\n" << taxForm << std::endl;
