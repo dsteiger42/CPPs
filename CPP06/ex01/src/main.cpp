@@ -14,7 +14,7 @@ int	main(void)
 	std::cout << "Raw:         " << raw << std::endl;
 	std::cout << "Deserialized:" << Serializer::deserialize(raw) << std::endl;
 	if (deserialization == &data)
-		std::cout << "Good job: pointers match!" << std::endl;
+		std::cout << "Pointers match!" << std::endl;
 	else
 		std::cout << "Error: pointers do not match." << std::endl;
 	return (0);

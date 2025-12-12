@@ -20,7 +20,7 @@ Serializer::~Serializer()
 {
 	std::cout << "Destructor called" << std::endl;
 }
-// reinterpret_cast is only cast that allows convertion between pointer and an integer large enough to hold a pointer (uintptr_t)
+// reinterpret_cast is the only cast that allows convertion between pointer and an integer large enough to hold a pointer (uintptr_t)
 uintptr_t Serializer::serialize(Data *ptr)
 {
 	return (reinterpret_cast<uintptr_t>(ptr));
