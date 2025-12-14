@@ -1,5 +1,13 @@
 #include "../includes/type.hpp"
+/*
+Dynamic cast behaviour:
+- Cast to Pointer - Returns null on failure
+- Cast to Reference - Throws exception on failure
 
+NOTE: 
+    References throw an exception, because they can never be NULL.
+    A NULL basically means "point to nothing". References need to refer to something. 
+*/
 Base * generate(void)
 {
 	int i;
@@ -20,22 +28,14 @@ Base * generate(void)
 
 void identify(Base* p)
 {
-    try {
-        if (dynamic_cast<A*>(p))
-            std::cout << "A" << std::endl;
-        else if (dynamic_cast<B*>(p))
-            std::cout << "B" << std::endl;
-        else if (dynamic_cast<C*>(p))
-            std::cout << "C" << std::endl;
-        else
-            throw std::exception();
-    }
-    catch(const std::exception& e) {
-        std::cerr << "Error: exception caught" << std::endl;
-    };
-    
+    if (dynamic_cast<A*>(p))
+        std::cout << "A" << std::endl;
+    else if (dynamic_cast<B*>(p))
+        std::cout << "B" << std::endl;
+    else if (dynamic_cast<C*>(p))
+        std::cout << "C" << std::endl;
 }
-
+// catch(...) means catch any exception, regardless of the type
 void identify(Base& p)
 {
     try {
@@ -43,21 +43,21 @@ void identify(Base& p)
         std::cout << "A" << std::endl;
         return ;
     }
-    catch(const std::bad_cast&) {}
+    catch(...) {}
 
     try {
         (void)dynamic_cast<B&>(p);
         std::cout << "B" << std::endl;
         return ;
     }
-    catch(const std::bad_cast&) {}
+    catch(...) {}
 
     try {
         (void)dynamic_cast<C&>(p);
         std::cout << "C" << std::endl;
         return ;
     }
-    catch(const std::bad_cast&) {}
+    catch(...) {}
 }
 
 int main()
