@@ -8,10 +8,13 @@
 # include <iomanip>
 # include <iostream>
 # include <string>
+# include <float.h>
 
 # define RESET "\e[0m"
 # define RED "\e[31m"
 
+// static functions do not need an object to be called.
+// non static functions need an object to be called.
 class ScalarConverter
 {
   private:
@@ -24,8 +27,6 @@ class ScalarConverter
 	static bool isInt(const std::string &str);
 	static bool isFloat(const std::string &str);
 	static bool isDouble(const std::string &str);
-
-	static bool validDecimalPrecision(const std::string &str, size_t maxDecimals);
 
 	static void charConverter(const std::string &str);
 	static void intConverter(const std::string &str);

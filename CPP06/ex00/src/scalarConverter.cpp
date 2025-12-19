@@ -116,25 +116,6 @@ bool ScalarConverter::isDouble(const std::string &str)
 	return (true);
 }
 
-bool	ScalarConverter::validDecimalPrecision(const std::string &str, size_t maxDecimals)
-{
-	size_t	dotPos;
-	size_t	decimals;
-
-	dotPos = str.find('.');
-	if (dotPos == std::string::npos)
-		return (true);
-	decimals = 0;
-	for (size_t i = dotPos + 1; i < str.length(); ++i)
-	{
-		if (isdigit(static_cast<unsigned char>(str[i])))
-			decimals++;
-		else
-			break ;
-	}
-	return (decimals <= maxDecimals);
-}
-
 void ScalarConverter::charConverter(const std::string &str)
 {
 	double	value;
@@ -153,7 +134,7 @@ void ScalarConverter::charConverter(const std::string &str)
 		return ;
 	}
 	value = strtod(str.c_str(), NULL);
-	if (value < 0 || value > 127 || !validDecimalPrecision(str, 8))
+	if (value < 0 || value > 127)
 	{
 		std::cout << "impossible" << std::endl;
 		return ;
@@ -191,7 +172,7 @@ void ScalarConverter::intConverter(const std::string &str)
 		return ;
 	}
 	value = strtod(str.c_str(), NULL);
-	if (value < INT_MIN || value > INT_MAX || !validDecimalPrecision(str, 8))
+	if (value < INT_MIN || value > INT_MAX)
 	{
 		std::cout << "impossible" << std::endl;
 		return ;
@@ -225,7 +206,7 @@ void ScalarConverter::floatConverter(const std::string &str)
 		value = static_cast<double>(str[0]);
 	else
 		value = strtod(str.c_str(), NULL);
-	if (value < INT_MIN || value > INT_MAX || !validDecimalPrecision(str, 8))
+	if (value < -FLT_MAX || value > FLT_MAX)
 	{
 		std::cout << "nanf" << std::endl;
 		return ;
@@ -258,7 +239,7 @@ void ScalarConverter::doubleConverter(const std::string &str)
 		value = static_cast<double>(str[0]);
 	else
 		value = strtod(str.c_str(), NULL);
-	if (value < INT_MIN || value > INT_MAX || !validDecimalPrecision(str, 8))
+	if (std::isinf(value))
 	{
 		std::cout << "nan" << std::endl;
 		return ;
