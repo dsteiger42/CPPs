@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/22 17:23:15 by dsteiger          #+#    #+#             */
+/*   Updated: 2025/12/22 17:58:09 by dsteiger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/easyfind.hpp"
 
 // vector is a dynamic array, as I can access each element and can also add or remove them

@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:47:05 by dsteiger          #+#    #+#             */
-/*   Updated: 2025/11/11 19:29:06 by dsteiger         ###   ########.fr       */
+/*   Updated: 2025/12/22 16:46:19 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,19 @@ int main(void)
 	try
 	{
 		Array<int> a(5);
-		for (unsigned int i = 0; i < a.size(); i++)
-			a[i] = i * 10;
 
 		std::cout << "Array a: ";
 		for (unsigned int i = 0; i < a.size(); i++)
+		{
+			a[i] = i * 10;	
 			std::cout << a[i] << " ";
+		}
 		std::cout << std::endl;
 
 		Array<int> b(a);
 		std::cout << "Array b (copy): ";
 		for (unsigned int i = 0; i < b.size(); i++)
 			std::cout << b[i] << " ";
-		std::cout << std::endl;
-
-		Array<int> c;
-		c = a;
-		std::cout << "Array c: ";
-		for (unsigned int i = 0; i < c.size(); i++)
-			std::cout << c[i] << " ";
 		std::cout << std::endl;
 
 		b[0] = 999;
