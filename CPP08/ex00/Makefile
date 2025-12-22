@@ -1,7 +1,7 @@
-NAME = Iter
+NAME = easyfind
 
 SRCS = src/main.cpp \
-		src/iter.cpp
+		src/easyfind.cpp
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

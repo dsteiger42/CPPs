@@ -16,6 +16,15 @@
 # include <iostream>
 # include <string>
 
+class Whatever
+{
+    public:
+        Whatever();
+        Whatever(const Whatever &copy);
+        Whatever &operator=(const Whatever &src);
+        ~Whatever();
+};
+
 template <typename T>
 void swap(T &s1, T &s2)
 {

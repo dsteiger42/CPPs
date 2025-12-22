@@ -1,7 +1,7 @@
-NAME = Iter
+NAME = Span
 
 SRCS = src/main.cpp \
-		src/iter.cpp
+		src/Span.cpp
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

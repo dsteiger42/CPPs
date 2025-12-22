@@ -1,6 +1,7 @@
 NAME = Whatever
 
-SRCS = src/main.cpp
+SRCS = src/main.cpp \
+		src/whatever.cpp
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

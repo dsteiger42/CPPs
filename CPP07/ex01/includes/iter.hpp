@@ -16,6 +16,15 @@
 #include <iostream>
 #include <string>
 
+class Iter
+{
+    public:
+        Iter();
+        Iter(const Iter &copy);
+        Iter &operator=(const Iter &src);
+        ~Iter();
+};
+
 template <typename A, typename F>
 
 void iter(A *adress, const size_t len, F function)
