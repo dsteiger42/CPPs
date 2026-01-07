@@ -12,12 +12,12 @@
 
 #include "../includes/Span.hpp"
 
-Span::Span() {}
-
-Span::Span(unsigned int N)
+Span::Span()
 {
-    
+    std::cout << "Default constructor called" << std::endl;
 }
+
+Span::Span(unsigned int N) : _Nb(N) {}
 
 Span::Span(const Span &copy)
 {
@@ -26,26 +26,35 @@ Span::Span(const Span &copy)
 
 Span &Span::operator=(const Span &src)
 {
-	(void)src;
+	if (this != &src) {
+        _Nb = src._Nb;
+        _vec = src._vec;
+    }
 	return (*this);
 }
 
-Span::~Span() {}
+Span::~Span()
+{
+    std::cout << "Destructor called" << std::endl;
+}
 
 void Span::addNumber(int num)
 {
-
+    if(_vec.size() < _Nb)
+        _vec.push_back(num);
+    else
+        throw FullException();
 }
 
 unsigned int Span::shortestSpan() const
 {
-    if(_N <= 1)
-        throw;
+    if(_Nb <= 1)
+        throw NoSpanException();
 }
 
 // maior numero - menor numero
 unsigned int Span::longestSpan() const
 {
-    if(_N <= 1)
-        throw;
+    if(_Nb <= 1)
+        throw NoSpanException();
 }
