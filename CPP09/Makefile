@@ -1,4 +1,4 @@
-NAME = MutantStack
+NAME = btc
 
 SRCS = src/main.cpp 
 CXX = c++

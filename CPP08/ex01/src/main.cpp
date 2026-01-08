@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 17:23:27 by dsteiger          #+#    #+#             */
-/*   Updated: 2026/01/07 17:29:23 by dsteiger         ###   ########.fr       */
+/*   Updated: 2026/01/08 15:16:26 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main()
 {
     try {
-        Span sp = Span(3);
+        Span sp = Span(5);
         sp.addNumber(6);
         sp.addNumber(3);
         sp.addNumber(17);

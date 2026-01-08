@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/08 16:09:00 by dsteiger          #+#    #+#             */
+/*   Updated: 2026/01/08 16:09:01 by dsteiger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MUTANT_HPP
 #define MUTANT_HPP
 
@@ -71,7 +83,7 @@ class MutantStack : public std::stack<T>
             return this->c.rbegin();
         }
 
-        
+
         rev_iter rend()
         {
             return this->c.rend();
