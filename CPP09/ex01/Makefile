@@ -1,6 +1,8 @@
-NAME = btc
+NAME = RPN
 
-SRCS = src/main.cpp 
+SRCS = src/main.cpp \
+		src/RPN.cpp
+
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
