@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 16:01:13 by dsteiger          #+#    #+#             */
-/*   Updated: 2026/01/13 18:25:31 by dsteiger         ###   ########.fr       */
+/*   Updated: 2026/01/14 10:47:48 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void BitcoinExchange::processInput(const std::string &filename)
 	}
 }
 
+// ifstream closes the file automatically
 void BitcoinExchange::loadDatabase(const std::string &filename)
 {
     std::ifstream file(filename.c_str());
@@ -125,7 +126,6 @@ void BitcoinExchange::loadDatabase(const std::string &filename)
         size_t comma = line.find(',');
         if (comma == std::string::npos)
             continue;
-
         std::string date = trim(line.substr(0, comma));
         double value = atof(trim(line.substr(comma + 1)).c_str());
         database[date] = value;
