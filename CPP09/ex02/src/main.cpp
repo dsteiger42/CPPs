@@ -1,53 +1,26 @@
 #include "../includes/PmergeMe.hpp"
 
-int main(int argc, char **argv)
-{
-    if (argc < 2)
-	{
-		std::cerr << "Error: not enough arguments" << std::endl;
-		return (1);
-	}
-    std::vector<int> vec;
-    for (int i = 1; i < argc; ++i)
-    {
-        formPairs(argv[i]);
-    }
-}
-
-/* int	main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc < 2)
 	{
 		std::cerr << "Error: not enough arguments" << std::endl;
 		return (1);
 	}
-	std::vector<int> vec;
+	PmergeMe	pm;
+	int			value;
 	for (int i = 1; i < argc; ++i)
 	{
-		int n;
-		std::string arg(argv[i]);
-		if (!parseNumber(arg, n))
-		{
-			std::cerr << "Error: invalid number '" << arg << "'" << std::endl;
+		if (!pm.parseNumbers(argv[i], value))
 			return (1);
-		}
-		if (std::find(vec.begin(), vec.end(), n) != vec.end())
-		{
-			std::cerr << "Error: duplicate number '" << n << "'" << std::endl;
-			return (1);
-		}
-
-		vec.push_back(n);
+		pm.formPairs(argv[i]);
 	}
-	std::cout << "Before: ";
-	for (size_t i = 0; i < vec.size(); ++i)
-		std::cout << vec[i] << " ";
-	std::cout << std::endl;
+    pm.finalizePairs();
+    pm.printBefore();
+	//pm.printContainers();
+    pm.fordJohnsonSort();
+    //pm.printSorted();
+    pm.sortAndMeasureVector();
+    pm.sortAndMeasureDeque();
+}
 
-	vec = johnsonSortRecursive(vec);
-	std::cout << "After: ";
-	for (size_t i = 0; i < vec.size(); ++i)
-		std::cout << vec[i] << " ";
-	std::cout << std::endl;
-	return (0);
-} */

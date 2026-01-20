@@ -6,25 +6,49 @@
 #include <sstream>
 #include <vector>
 #include <deque>
+#include <algorithm>
 #include <string>
 #include <limits.h>
-#include <algorithm>
 #include <ctime>
-#include <cerrno>
+#include <cstdlib>
+#include <iomanip>
 
 class PmergeMe
 {
+    private:
+        std::vector<int> numbersVec;
+        std::vector<int> minsVec;
+	    std::vector<int> maxsVec;
+
+        std::deque<int> numbersDeque;
+        std::deque<int> minsDeque;
+        std::deque<int> maxsDeque;
+
+        int temp;
+
     public:
         PmergeMe();
         PmergeMe(const PmergeMe &copy);
         PmergeMe &operator=(const PmergeMe &src);
         ~PmergeMe();
 
+        bool isDup(int value);
+        bool parseNumbers(const std::string &str, int &value);
+        void formPairs(const std::string &str);
+        void finalizePairs();
+        void printVector(const std::vector<int> &v, const std::string &name) const;
+        void printDeque(const std::deque<int> &d, const std::string &name) const;
+        void printContainers() const;
+        void binaryInsert(std::vector<int> &v, int value);
+        void fordJohnsonSortVector(std::vector<int> &maxs, std::vector<int> &mins);
+        void fordJohnsonSort();
+        void printSorted() const;
+        std::vector<size_t> jacobsthalSequence(size_t n);
+        void jacobsthalInsert(std::vector<int> &maxs, const std::vector<int> &mins);
+        void sortAndMeasureVector();
+        void sortAndMeasureDeque();
+        void printBefore() const;
 };
-bool parseNumber(const std::string &str, int &out);
-std::vector<size_t> getJacobsthalOrder(size_t n);
-void binaryInsert(std::vector<int> &sorted, int value);
-std::vector<int> johnsonSortRecursive(const std::vector<int> &c);
-void formPairs(std::string str);
+
 
 #endif
