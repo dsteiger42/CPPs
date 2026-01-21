@@ -17,9 +17,7 @@ int	main(int argc, char **argv)
 	}
     pm.finalizePairs();
     pm.printBefore();
-	//pm.printContainers();
     pm.fordJohnsonSort();
-    //pm.printSorted();
     pm.sortAndMeasureVector();
     pm.sortAndMeasureDeque();
 }

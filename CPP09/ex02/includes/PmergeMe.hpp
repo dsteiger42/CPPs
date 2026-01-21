@@ -36,13 +36,9 @@ class PmergeMe
         bool parseNumbers(const std::string &str, int &value);
         void formPairs(const std::string &str);
         void finalizePairs();
-        void printVector(const std::vector<int> &v, const std::string &name) const;
-        void printDeque(const std::deque<int> &d, const std::string &name) const;
-        void printContainers() const;
         void binaryInsert(std::vector<int> &v, int value);
         void fordJohnsonSortVector(std::vector<int> &maxs, std::vector<int> &mins);
         void fordJohnsonSort();
-        void printSorted() const;
         std::vector<size_t> jacobsthalSequence(size_t n);
         void jacobsthalInsert(std::vector<int> &maxs, const std::vector<int> &mins);
         void sortAndMeasureVector();
