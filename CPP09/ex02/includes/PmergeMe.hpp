@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:28:25 by dsteiger          #+#    #+#             */
-/*   Updated: 2026/01/23 18:17:55 by dsteiger         ###   ########.fr       */
+/*   Updated: 2026/01/23 18:27:13 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ class PmergeMe
 
         template<typename C>
         void fordJohnsonSortCont(C &maxs, C &mins);
-        void fordJohnsonSort();
         std::vector<size_t> jacobsthalSequence(size_t n);
 
         template<typename C>

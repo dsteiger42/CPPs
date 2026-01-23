@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 14:39:00 by dsteiger          #+#    #+#             */
-/*   Updated: 2026/01/23 18:17:34 by dsteiger         ###   ########.fr       */
+/*   Updated: 2026/01/23 18:31:24 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,11 +174,6 @@ void PmergeMe::fordJohnsonSortCont(C &maxs, C &mins)
 	maxs = newMaxs;
 }
 
-void PmergeMe::fordJohnsonSort()
-{
-	fordJohnsonSortCont(maxsVec, minsVec);
-}
-
 std::vector<size_t> PmergeMe::jacobsthalSequence(size_t n)
 {
 	size_t	size;
@@ -237,7 +232,7 @@ void PmergeMe::sortAndMeasureVector()
 	for (size_t i = 0; i < copy.size(); ++i)
 		std::cout << copy[i] << " ";
 	std::cout << std::endl;
-	elapsed = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	elapsed = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e6;
 	std::cout << std::fixed << std::setprecision(5);
 	std::cout << "Time to process a range of " << copy.size() << " elements with std::vector: " << elapsed << " us" << std::endl;
 }
@@ -253,7 +248,7 @@ void PmergeMe::sortAndMeasureDeque()
 	start = clock();
 	fordJohnsonSortCont(copy, emptyMins);
 	end = clock();
-	elapsed = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	elapsed = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e6;
 	std::cout << std::fixed << std::setprecision(5);
 	std::cout << "Time to process a range of " << copy.size() << " elements with std::deque: " << elapsed << " us" << std::endl;
 }
