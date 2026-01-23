@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/21 15:28:25 by dsteiger          #+#    #+#             */
+/*   Updated: 2026/01/23 18:17:55 by dsteiger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PmergeMe_HPP
 #define PmergeMe_HPP
 
@@ -36,11 +48,17 @@ class PmergeMe
         bool parseNumbers(const std::string &str, int &value);
         void formPairs(const std::string &str);
         void finalizePairs();
-        void binaryInsert(std::vector<int> &v, int value);
-        void fordJohnsonSortVector(std::vector<int> &maxs, std::vector<int> &mins);
+
+        template<typename C>
+        void binaryInsert(C &v, int value);
+
+        template<typename C>
+        void fordJohnsonSortCont(C &maxs, C &mins);
         void fordJohnsonSort();
         std::vector<size_t> jacobsthalSequence(size_t n);
-        void jacobsthalInsert(std::vector<int> &maxs, const std::vector<int> &mins);
+
+        template<typename C>
+        void jacobsthalInsert(C &maxs, C &mins);
         void sortAndMeasureVector();
         void sortAndMeasureDeque();
         void printBefore() const;

@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 16:01:13 by dsteiger          #+#    #+#             */
-/*   Updated: 2026/01/14 10:47:48 by dsteiger         ###   ########.fr       */
+/*   Updated: 2026/01/21 17:06:02 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void BitcoinExchange::processInput(const std::string &filename)
 
 	std::ifstream file(filename.c_str());
 	std::string line;
-	std::getline(file, line); // header
+	std::getline(file, line);
 	while (std::getline(file, line)) {
 		pipe = line.find("|");
 		if (pipe == std::string::npos) {

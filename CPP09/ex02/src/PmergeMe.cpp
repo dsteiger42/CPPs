@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 14:39:00 by dsteiger          #+#    #+#             */
-/*   Updated: 2026/01/15 19:02:01 by dsteiger         ###   ########.fr       */
+/*   Updated: 2026/01/23 18:17:34 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,8 @@ void PmergeMe::finalizePairs()
 	}
 }
 
-void PmergeMe::binaryInsert(std::vector<int> &v, int value)
+template<typename C>
+void PmergeMe::binaryInsert(C &v, int value)
 {
 	size_t	left;
 	size_t	right;
@@ -136,48 +137,46 @@ void PmergeMe::binaryInsert(std::vector<int> &v, int value)
 	}
 	v.insert(v.begin() + left, value);
 }
-
-void PmergeMe::fordJohnsonSortVector(std::vector<int> &maxs,
-	std::vector<int> &mins)
+template<typename C>
+void PmergeMe::fordJohnsonSortCont(C &maxs, C &mins)
 {
-	int	tmp;
+	int	temp;
 
 	if (maxs.size() <= 1)
 		return ;
 	(void)mins;
-	std::vector<int> newMins;
-	std::vector<int> newMaxs;
-	tmp = -1;
+	C newMins;
+	C newMaxs;
+	temp = -1;
 	for (size_t i = 0; i < maxs.size(); ++i)
 	{
-		if (tmp == -1)
-			tmp = maxs[i];
+		if (temp == -1)
+			temp = maxs[i];
 		else
 		{
-			if (tmp < maxs[i])
+			if (temp < maxs[i])
 			{
-				newMins.push_back(tmp);
+				newMins.push_back(temp);
 				newMaxs.push_back(maxs[i]);
 			}
 			else
 			{
 				newMins.push_back(maxs[i]);
-				newMaxs.push_back(tmp);
+				newMaxs.push_back(temp);
 			}
-			tmp = -1;
+			temp = -1;
 		}
 	}
-	if (tmp != -1)
-		newMaxs.push_back(tmp);
-	fordJohnsonSortVector(newMaxs, newMins);
+	if (temp != -1)
+		newMaxs.push_back(temp);
+	fordJohnsonSortCont(newMaxs, newMins);
 	jacobsthalInsert(newMaxs, newMins);
 	maxs = newMaxs;
 }
 
 void PmergeMe::fordJohnsonSort()
 {
-	fordJohnsonSortVector(maxsVec, minsVec);
-	jacobsthalInsert(maxsVec, minsVec);
+	fordJohnsonSortCont(maxsVec, minsVec);
 }
 
 std::vector<size_t> PmergeMe::jacobsthalSequence(size_t n)
@@ -195,8 +194,8 @@ std::vector<size_t> PmergeMe::jacobsthalSequence(size_t n)
 	return (seq);
 }
 
-void PmergeMe::jacobsthalInsert(std::vector<int> &maxs,
-	const std::vector<int> &mins)
+template<typename C>
+void PmergeMe::jacobsthalInsert(C &maxs, C &mins)
 {
 	size_t	start;
 	size_t	end;
@@ -232,13 +231,13 @@ void PmergeMe::sortAndMeasureVector()
 	std::vector<int> copy = numbersVec;
 	std::vector<int> emptyMins;
 	start = clock();
-	fordJohnsonSortVector(copy, emptyMins);
+	fordJohnsonSortCont(copy, emptyMins);
 	end = clock();
 	std::cout << "\nAfter: ";
 	for (size_t i = 0; i < copy.size(); ++i)
 		std::cout << copy[i] << " ";
 	std::cout << std::endl;
-	elapsed = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e6;
+	elapsed = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 	std::cout << std::fixed << std::setprecision(5);
 	std::cout << "Time to process a range of " << copy.size() << " elements with std::vector: " << elapsed << " us" << std::endl;
 }
@@ -250,15 +249,13 @@ void PmergeMe::sortAndMeasureDeque()
 	double	elapsed;
 
 	std::deque<int> copy = numbersDeque;
-	std::vector<int> tmp(copy.begin(), copy.end());
-	std::vector<int> emptyMins;
+	std::deque<int> emptyMins;
 	start = clock();
-	fordJohnsonSortVector(tmp, emptyMins);
-	copy.assign(tmp.begin(), tmp.end());
+	fordJohnsonSortCont(copy, emptyMins);
 	end = clock();
-	elapsed = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e6;
+	elapsed = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 	std::cout << std::fixed << std::setprecision(5);
-	std::cout << "Time to process a range of " << copy.size() << " elements with std::vector: " << elapsed << " us" << std::endl;
+	std::cout << "Time to process a range of " << copy.size() << " elements with std::deque: " << elapsed << " us" << std::endl;
 }
 
 void PmergeMe::printBefore() const

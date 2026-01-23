@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:48:49 by dsteiger          #+#    #+#             */
-/*   Updated: 2026/01/14 14:34:30 by dsteiger         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:14:26 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ int main(int argc, char **argv)
         return -1;
     }
     int result = rpn.calculate(argv[1]);
-    if(result == -1) {
-        std::cerr << "Error" << std::endl;
+    if(result == -1)
         return -1;
-    }
     std::cout << result << std::endl;
     return 0;
 }

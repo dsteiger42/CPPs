@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:48:52 by dsteiger          #+#    #+#             */
-/*   Updated: 2026/01/14 14:34:56 by dsteiger         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:05:20 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ bool RPN::validateInput(std::string str)
 	}
 	return (true);
 }
-//  std::istringstream iss(str); this already separates tokens by spaces
+//  std::istringstream readInput(str); this already separates tokens by spaces
 int RPN::calculate(const std::string &input)
 {
     std::stack<int> stk;
@@ -90,7 +90,15 @@ int RPN::calculate(const std::string &input)
             else if(token == "*")
                 stk.push(left * right);
             else if(token == "/")
-                stk.push(left / right);
+            {
+                if(right == 0)
+                {
+                    std::cerr << "Error: 0 is not divisible" << std::endl;
+                    return -1;
+                }
+                else
+                    stk.push(left / right);
+            }
             else{
                 std::cerr << "Error: wrong operator input" << std::endl;
                 return -1;
